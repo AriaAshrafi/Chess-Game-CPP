@@ -4,11 +4,23 @@
 CMakeFiles/ChessGame.dir/src/Chess.cpp.o
  /home/aria/Desktop/All/University/Classes/AP/Projects/src/Chess.cpp
  headers/Chess.h
+ headers/Others.h
  headers/Piece.h
+ headers/Setting.h
+CMakeFiles/ChessGame.dir/src/Others.cpp.o
+ /home/aria/Desktop/All/University/Classes/AP/Projects/src/Others.cpp
+ headers/Others.h
+ headers/Setting.h
 CMakeFiles/ChessGame.dir/src/Piece.cpp.o
  /home/aria/Desktop/All/University/Classes/AP/Projects/src/Piece.cpp
  headers/Piece.h
+ headers/Setting.h
+CMakeFiles/ChessGame.dir/src/Setting.cpp.o
+ /home/aria/Desktop/All/University/Classes/AP/Projects/src/Setting.cpp
+ headers/Setting.h
 CMakeFiles/ChessGame.dir/src/main.cpp.o
  /home/aria/Desktop/All/University/Classes/AP/Projects/src/main.cpp
  headers/Chess.h
+ headers/Others.h
  headers/Piece.h
+ headers/Setting.h

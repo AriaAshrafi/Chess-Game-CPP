@@ -3,12 +3,24 @@
 
 CMakeFiles/ChessGame.dir/src/Chess.cpp.o: src/Chess.cpp
 CMakeFiles/ChessGame.dir/src/Chess.cpp.o: headers/Chess.h
+CMakeFiles/ChessGame.dir/src/Chess.cpp.o: headers/Others.h
 CMakeFiles/ChessGame.dir/src/Chess.cpp.o: headers/Piece.h
+CMakeFiles/ChessGame.dir/src/Chess.cpp.o: headers/Setting.h
+
+CMakeFiles/ChessGame.dir/src/Others.cpp.o: src/Others.cpp
+CMakeFiles/ChessGame.dir/src/Others.cpp.o: headers/Others.h
+CMakeFiles/ChessGame.dir/src/Others.cpp.o: headers/Setting.h
 
 CMakeFiles/ChessGame.dir/src/Piece.cpp.o: src/Piece.cpp
 CMakeFiles/ChessGame.dir/src/Piece.cpp.o: headers/Piece.h
+CMakeFiles/ChessGame.dir/src/Piece.cpp.o: headers/Setting.h
+
+CMakeFiles/ChessGame.dir/src/Setting.cpp.o: src/Setting.cpp
+CMakeFiles/ChessGame.dir/src/Setting.cpp.o: headers/Setting.h
 
 CMakeFiles/ChessGame.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/ChessGame.dir/src/main.cpp.o: headers/Chess.h
+CMakeFiles/ChessGame.dir/src/main.cpp.o: headers/Others.h
 CMakeFiles/ChessGame.dir/src/main.cpp.o: headers/Piece.h
+CMakeFiles/ChessGame.dir/src/main.cpp.o: headers/Setting.h
 

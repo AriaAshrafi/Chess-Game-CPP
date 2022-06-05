@@ -150,6 +150,33 @@ src/Chess.cpp.s:
 	$(MAKE) -f CMakeFiles/ChessGame.dir/build.make CMakeFiles/ChessGame.dir/src/Chess.cpp.s
 .PHONY : src/Chess.cpp.s
 
+src/Others.o: src/Others.cpp.o
+
+.PHONY : src/Others.o
+
+# target to build an object file
+src/Others.cpp.o:
+	$(MAKE) -f CMakeFiles/ChessGame.dir/build.make CMakeFiles/ChessGame.dir/src/Others.cpp.o
+.PHONY : src/Others.cpp.o
+
+src/Others.i: src/Others.cpp.i
+
+.PHONY : src/Others.i
+
+# target to preprocess a source file
+src/Others.cpp.i:
+	$(MAKE) -f CMakeFiles/ChessGame.dir/build.make CMakeFiles/ChessGame.dir/src/Others.cpp.i
+.PHONY : src/Others.cpp.i
+
+src/Others.s: src/Others.cpp.s
+
+.PHONY : src/Others.s
+
+# target to generate assembly for a file
+src/Others.cpp.s:
+	$(MAKE) -f CMakeFiles/ChessGame.dir/build.make CMakeFiles/ChessGame.dir/src/Others.cpp.s
+.PHONY : src/Others.cpp.s
+
 src/Piece.o: src/Piece.cpp.o
 
 .PHONY : src/Piece.o
@@ -176,6 +203,33 @@ src/Piece.s: src/Piece.cpp.s
 src/Piece.cpp.s:
 	$(MAKE) -f CMakeFiles/ChessGame.dir/build.make CMakeFiles/ChessGame.dir/src/Piece.cpp.s
 .PHONY : src/Piece.cpp.s
+
+src/Setting.o: src/Setting.cpp.o
+
+.PHONY : src/Setting.o
+
+# target to build an object file
+src/Setting.cpp.o:
+	$(MAKE) -f CMakeFiles/ChessGame.dir/build.make CMakeFiles/ChessGame.dir/src/Setting.cpp.o
+.PHONY : src/Setting.cpp.o
+
+src/Setting.i: src/Setting.cpp.i
+
+.PHONY : src/Setting.i
+
+# target to preprocess a source file
+src/Setting.cpp.i:
+	$(MAKE) -f CMakeFiles/ChessGame.dir/build.make CMakeFiles/ChessGame.dir/src/Setting.cpp.i
+.PHONY : src/Setting.cpp.i
+
+src/Setting.s: src/Setting.cpp.s
+
+.PHONY : src/Setting.s
+
+# target to generate assembly for a file
+src/Setting.cpp.s:
+	$(MAKE) -f CMakeFiles/ChessGame.dir/build.make CMakeFiles/ChessGame.dir/src/Setting.cpp.s
+.PHONY : src/Setting.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -216,9 +270,15 @@ help:
 	@echo "... src/Chess.o"
 	@echo "... src/Chess.i"
 	@echo "... src/Chess.s"
+	@echo "... src/Others.o"
+	@echo "... src/Others.i"
+	@echo "... src/Others.s"
 	@echo "... src/Piece.o"
 	@echo "... src/Piece.i"
 	@echo "... src/Piece.s"
+	@echo "... src/Setting.o"
+	@echo "... src/Setting.i"
+	@echo "... src/Setting.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

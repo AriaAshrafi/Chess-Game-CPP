@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/aria/Desktop/All/University/Classes/AP/Projects/src/Chess.cpp
-bits/stdc++.h
--
-Chess.h
--
-
-/home/aria/Desktop/All/University/Classes/AP/Projects/src/Piece.cpp
-bits/stdc++.h
--
-Piece.h
--
-
 /home/aria/Desktop/All/University/Classes/AP/Projects/src/main.cpp
 bits/stdc++.h
 -
@@ -25,14 +13,36 @@ Chess.h
 -
 Piece.h
 -
+Setting.h
+-
+Others.h
+-
 
 headers/Chess.h
 bits/stdc++.h
 -
 Piece.h
 -
+SFML/Graphics.hpp
+-
+Setting.h
+-
+
+headers/Others.h
+SFML/Graphics.hpp
+-
+Setting.h
+-
 
 headers/Piece.h
 bits/stdc++.h
 -
+SFML/Graphics.hpp
+-
+Setting.h
+-
+
+headers/Setting.h
+SFML/Graphics.hpp
+headers/SFML/Graphics.hpp
 

@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/ChessGame.dir/src/main.cpp.o CMakeFiles/ChessGame.dir/src/Chess.cpp.o CMakeFiles/ChessGame.dir/src/Piece.cpp.o  -o ChessGame 
+/usr/bin/c++    -rdynamic CMakeFiles/ChessGame.dir/src/main.cpp.o CMakeFiles/ChessGame.dir/src/Chess.cpp.o CMakeFiles/ChessGame.dir/src/Piece.cpp.o CMakeFiles/ChessGame.dir/src/Others.cpp.o CMakeFiles/ChessGame.dir/src/Setting.cpp.o  -o ChessGame  -lsfml-system -lsfml-window -lsfml-graphics 

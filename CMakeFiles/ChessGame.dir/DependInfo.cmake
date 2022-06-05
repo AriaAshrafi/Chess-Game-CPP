@@ -5,7 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/aria/Desktop/All/University/Classes/AP/Projects/src/Chess.cpp" "/home/aria/Desktop/All/University/Classes/AP/Projects/CMakeFiles/ChessGame.dir/src/Chess.cpp.o"
+  "/home/aria/Desktop/All/University/Classes/AP/Projects/src/Others.cpp" "/home/aria/Desktop/All/University/Classes/AP/Projects/CMakeFiles/ChessGame.dir/src/Others.cpp.o"
   "/home/aria/Desktop/All/University/Classes/AP/Projects/src/Piece.cpp" "/home/aria/Desktop/All/University/Classes/AP/Projects/CMakeFiles/ChessGame.dir/src/Piece.cpp.o"
+  "/home/aria/Desktop/All/University/Classes/AP/Projects/src/Setting.cpp" "/home/aria/Desktop/All/University/Classes/AP/Projects/CMakeFiles/ChessGame.dir/src/Setting.cpp.o"
   "/home/aria/Desktop/All/University/Classes/AP/Projects/src/main.cpp" "/home/aria/Desktop/All/University/Classes/AP/Projects/CMakeFiles/ChessGame.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
