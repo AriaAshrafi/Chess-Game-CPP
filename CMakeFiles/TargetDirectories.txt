@@ -1,0 +1,3 @@
+/home/aria/Desktop/All/University/Classes/AP/Projects/CMakeFiles/rebuild_cache.dir
+/home/aria/Desktop/All/University/Classes/AP/Projects/CMakeFiles/edit_cache.dir
+/home/aria/Desktop/All/University/Classes/AP/Projects/CMakeFiles/ChessGame.dir

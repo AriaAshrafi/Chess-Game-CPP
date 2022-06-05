@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aria/Desktop/All/University/Classes/AP/Projects/src/Chess.cpp
+bits/stdc++.h
+-
+Chess.h
+-
+
+/home/aria/Desktop/All/University/Classes/AP/Projects/src/Piece.cpp
+bits/stdc++.h
+-
+Piece.h
+-
+
+/home/aria/Desktop/All/University/Classes/AP/Projects/src/main.cpp
+bits/stdc++.h
+-
+Chess.h
+-
+Piece.h
+-
+
+headers/Chess.h
+bits/stdc++.h
+-
+Piece.h
+-
+
+headers/Piece.h
+bits/stdc++.h
+-
+
