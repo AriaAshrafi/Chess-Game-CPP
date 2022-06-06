@@ -13,7 +13,7 @@ int get_ind(int x) {
                 return -1;
         int cell_plus_space = setting::cell_size + setting::line_space;
         int index = x / cell_plus_space;
-        if (index > 2 || x > index * cell_plus_space + setting::cell_size)
+        if (index < 1 || index > 9 || x > index * cell_plus_space + setting::cell_size)
                 return -1;
         return index;
 }

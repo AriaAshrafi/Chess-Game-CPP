@@ -11,6 +11,7 @@ class Chess {
                 Chess(sf::RenderWindow* _window);
                 Piece board[12][12];
                 bool isfin = false, oneClick = false;
+                pair<int, int> lastClick;
                 char turn = 'W';
                 sf::RenderWindow* window;
                 sf::Font font;

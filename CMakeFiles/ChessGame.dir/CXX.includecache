@@ -6,12 +6,12 @@
 
 #IncludeRegexTransform: 
 
-/home/aria/Desktop/All/University/Classes/AP/Projects/src/main.cpp
+/home/aria/Desktop/All/University/Classes/AP/Projects/src/Chess.cpp
 bits/stdc++.h
 -
-Chess.h
+SFML/Graphics.hpp
 -
-Piece.h
+Chess.h
 -
 Setting.h
 -

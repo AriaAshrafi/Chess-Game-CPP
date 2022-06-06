@@ -11,11 +11,14 @@ void Chess::init() {
         for (int i = 1; i < 9; i++)
                 for (int j = 1; j < 9; j++) {
                         board[i][j].rect.setSize(sf::Vector2f(setting::cell_size, setting::cell_size));
-                        board[i][j].rect.setFillColor(setting::cell_color);
+                        if ((i + j) & 1)
+                                board[i][j].rect.setFillColor(setting::cell_color0);
+                        else
+                                board[i][j].rect.setFillColor(setting::cell_color1);
                         board[i][j].rect.setPosition(get_pos(i, j));
                 }
 
-        font.loadFromFile("resources/fonts/arial.TTF");
+        font.loadFromFile("resources/fonts/Arial.TTF");
         stat.setFont(font);
         stat.setCharacterSize(30);
         stat.setStyle(sf::Text::Regular);
@@ -26,7 +29,7 @@ void Chess::init() {
         //Pawns
         for (int i = 1; i < 9; i++)
                 board[2][i].change('P', 'B'),
-                        board[7][i].change('P', 'W');
+                board[7][i].change('P', 'W');
 
         //Rooks
         board[1][1].change('R', 'B');
@@ -195,7 +198,11 @@ bool Chess::rmove(int r1, int c1, int r2, int c2, int x, int y) {
 
         //Pawn
         if (x == 'P') {
-                if (c1 == c2 and ((r2 == r1 + 1 and y == 'B') or (r2 == r1 - 1 and y == 'W'))) {
+                if (c1 == c2 and ((r2 == r1 + 2 and y == 'B') or (r2 == r1 - 2 and y == 'W'))) {
+                        if (board[r2][c2].name != '-' or board[(r2 + r1) / 2][c2].name != '-' or (y == 'W' and r1 != 7) or (y == 'B' and r1 != 2))
+                                return false;
+                }
+                else if (c1 == c2 and ((r2 == r1 + 1 and y == 'B') or (r2 == r1 - 1 and y == 'W'))) {
                         if (board[r2][c2].name != '-')
                                 return false;
                 }
@@ -288,12 +295,12 @@ bool Chess::rmove(int r1, int c1, int r2, int c2, int x, int y) {
 
         if (ischeck(y)) {
                 board[r1][c1].change(x, y);
-                board[r2][c2] = tmp;
+                board[r2][c2].change(tmp.name, tmp.color);
                 return false;
         }
 
         board[r1][c1].change(x, y);
-        board[r2][c2] = tmp;
+        board[r2][c2].change(tmp.name, tmp.color);
         return true;
 }
 void Chess::move(string s) {
@@ -348,21 +355,38 @@ void Chess::draw() {
         for (int i = 1; i < 9; i++)
                 for (int j = 1; j < 9; j++) {
                         window -> draw(board[i][j].rect);
-                        if (board[i][j].name != '-')
+                        if (board[i][j].name != '-') {
+                                board[i][j].load_texture();
                                 window -> draw(board[i][j].sp);
+                        }
                 }
         window -> draw(stat);
 }
 
 void Chess::mouse_clicked(const sf::Vector2i& pos) {
         int r = get_ind(pos.y), c = get_ind(pos.x);
+        cerr << "CLICK" << endl;
         if (r == -1 or c == -1)
                 return;
-        if (oneClick) { /////////////////////////////////
+        if (oneClick) {
+                cerr << "# second click" << endl;
                 oneClick = false;
+                int r0 = lastClick.first, c0 = lastClick.second;
+                string tmpS = "";
+                tmpS += char((c0 - 1) + 'a');
+                tmpS += char((9 - r0) + '0');
+                tmpS += board[r0][c0].name;
+                tmpS += board[r0][c0].color;
+                tmpS += char((c - 1) + 'a');
+                tmpS += char((9 - r) + '0');
+                this -> move(tmpS);
         }
-        else { /////////////////////////////////////////
+        else {
+                cerr << "# first click" << endl;
+                if (board[r][c].name == '-')
+                        return;
                 oneClick = true;
+                lastClick = pair<int, int>(r, c);
         }
 }
 
