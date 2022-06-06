@@ -10,10 +10,10 @@ class Piece {
 		char name;
 		char color;
                 sf::RectangleShape rect;
-                sf::Sprite sp;
+                sf::Sprite sp, spDG, spDR;
 
 		Piece(char x = '-', char y = '-') {	name = x, color = y;	}
-                void load_texture();
+                void load_texture(int fl = 1);
 		void operator= (Piece &A);
 		void change(char x, char y);
 };

@@ -8,5 +8,6 @@ struct setting
     static int cell_offset;
     static sf::Color cell_color0;
     static sf::Color cell_color1;
+    static sf::Color cell_color2;
     static int line_space;
 };

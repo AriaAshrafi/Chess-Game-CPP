@@ -8,8 +8,10 @@ using namespace std;
 Chess::Chess(sf::RenderWindow* _window) : window(_window) {     this -> window -> setFramerateLimit(60);      }
 
 void Chess::init() {
+        turn = 'W';
         for (int i = 1; i < 9; i++)
                 for (int j = 1; j < 9; j++) {
+                        board[i][j].change('-', '-');
                         board[i][j].rect.setSize(sf::Vector2f(setting::cell_size, setting::cell_size));
                         if ((i + j) & 1)
                                 board[i][j].rect.setFillColor(setting::cell_color0);
@@ -18,13 +20,30 @@ void Chess::init() {
                         board[i][j].rect.setPosition(get_pos(i, j));
                 }
 
+        //fixing stat
         font.loadFromFile("resources/fonts/Arial.TTF");
         stat.setFont(font);
         stat.setCharacterSize(30);
         stat.setStyle(sf::Text::Regular);
         stat.setFillColor(sf::Color::Black);
-        stat.setPosition(400.f, 80.f);
+        stat.setPosition(450.f, 50.f);
         stat.setString("White turns");
+
+        //fixing reset button
+        res.setFont(font);
+        res.setCharacterSize(30);
+        res.setStyle(sf::Text::Regular);
+        res.setFillColor(sf::Color::Black);
+        res.setPosition(100.f, 50.f);
+        res.setString("RESET");
+
+        //fixing input button
+        inp.setFont(font);
+        inp.setCharacterSize(30);
+        inp.setStyle(sf::Text::Regular);
+        inp.setFillColor(sf::Color::Black);
+        inp.setPosition(890.f, 50.f);
+        inp.setString("Input");
 
         //Pawns
         for (int i = 1; i < 9; i++)
@@ -56,6 +75,16 @@ void Chess::init() {
         //Kings
         board[1][5].change('K', 'B');
         board[8][5].change('K', 'W');
+}
+
+void Chess::input() {
+        turn = 'W';
+        for (int i = 1; i < 9; i++)
+                for (int j = 1; j < 9; j++) {
+                        string tmp;
+                        cin >> tmp;
+                        board[i][j].change(tmp[0], tmp[1]);
+                }
 }
 
 bool Chess::danger(int r1, int c1, int r2, int c2) { //Check if the piece in [r2][c2] is in danger by [r1][c1]
@@ -159,12 +188,24 @@ bool Chess::ischeck(char y) {
                         if (board[i][j].name == 'K' and board[i][j].color == y)
                                 r = i, c = j;
 
+        bool flag = false;
         //Check if a piece is in dangering the king
         for (int i = 1; i < 9; i++)
                 for (int j = 1; j < 9; j++)
                         if (board[i][j].color != '-' and board[i][j].color != y and danger(i, j, r, c))
-                                return true;
-        return false;
+                                flag = true;
+
+        //changing background
+        if (flag)
+                board[r][c].rect.setFillColor(setting::cell_color2);
+        else {
+                if ((r + c) & 1)
+                        board[r][c].rect.setFillColor(setting::cell_color0);
+                else
+                        board[r][c].rect.setFillColor(setting::cell_color1);
+        }
+
+        return flag;
 }
 
 bool Chess::ismate(char y) {
@@ -351,19 +392,52 @@ void Chess::move(string s) {
 
 }
 
+void Chess::res_col() {
+        for (int i = 1; i < 9; i++)
+                for (int j = 1; j < 9; j++)
+                        if ((i + j) & 1)
+                                board[i][j].rect.setFillColor(setting::cell_color0);
+                        else
+                                board[i][j].rect.setFillColor(setting::cell_color1);
+}
+
 void Chess::draw() {
+        res_col();
+        ischeck('W');
+        ischeck('B');
         for (int i = 1; i < 9; i++)
                 for (int j = 1; j < 9; j++) {
                         window -> draw(board[i][j].rect);
+
                         if (board[i][j].name != '-') {
                                 board[i][j].load_texture();
                                 window -> draw(board[i][j].sp);
                         }
+                        else if (lastClick.first != 0 && oneClick) {
+                                int r0 = lastClick.first, c0 = lastClick.second;
+                                char na = board[r0][c0].name, col = board[r0][c0].color;
+                                if (rmove(r0, c0, i, j, na, col)) {
+                                        board[i][j].load_texture(0);
+                                        window -> draw(board[i][j].spDG);
+                                }
+                        }
                 }
         window -> draw(stat);
+        window -> draw(res);
+        window -> draw(inp);
 }
 
 void Chess::mouse_clicked(const sf::Vector2i& pos) {
+        float x = pos.x, y = pos.y;
+        if (abs(x - 100) < 100 and abs(y - 50) < 40) {
+                this -> init();
+                return;
+        }
+
+        if (abs(x - 890) < 100 and abs(y - 50) < 40) {
+                this -> input();
+                return;
+        }
         int r = get_ind(pos.y), c = get_ind(pos.x);
         cerr << "CLICK" << endl;
         if (r == -1 or c == -1)
@@ -379,7 +453,9 @@ void Chess::mouse_clicked(const sf::Vector2i& pos) {
                 tmpS += board[r0][c0].color;
                 tmpS += char((c - 1) + 'a');
                 tmpS += char((9 - r) + '0');
+
                 this -> move(tmpS);
+                lastClick = pair<int, int>(0, 0);
         }
         else {
                 cerr << "# first click" << endl;

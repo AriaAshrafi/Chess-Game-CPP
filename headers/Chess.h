@@ -11,13 +11,17 @@ class Chess {
                 Chess(sf::RenderWindow* _window);
                 Piece board[12][12];
                 bool isfin = false, oneClick = false;
-                pair<int, int> lastClick;
+                pair<int, int> lastClick = pair<int, int>(0, 0);
                 char turn = 'W';
                 sf::RenderWindow* window;
                 sf::Font font;
                 sf::Text stat;
+                sf::Text res;
+                sf::Text inp;
 
                 void init();
+                void input();
+                void res_col();
                 void mouse_clicked(const sf::Vector2i& pos);
                 void draw();
                 void stat_upd();
